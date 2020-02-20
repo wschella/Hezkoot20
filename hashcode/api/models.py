@@ -15,25 +15,37 @@ class Solution():
         self.found_books = set()
         self.days_left = problem.num_days
 
+    def get_best_books(self, lib, time_left):
+        bbw = [(self.problem.weights[book], book)
+                for book in lib.books if book not in self.found_books]
+        if len(bbw) == 0:
+            return []
+        bbw.sort()
+        bbw.reverse()
+        return list(zip(*bbw))[1][:lib.flow * time_left]
+
+
     def add_lib(self, lib, books=None):
         self.days_left -= lib.num_days
         if self.days_left <= 0:
             self.days = 0
             return
         if books == None:
-            bbw = [(self.problem.weights[book], book)
-                   for book in lib.books if book not in self.found_books]
-            if len(bbw) == 0:
+            books = self.get_best_books(lib, self.days_left)
+            if len(books) == 0:
                 self.days_left += lib.num_days
                 return
-            bbw.sort()
-            bbw.reverse()
-            books = list(zip(*bbw))[1][:lib.flow * self.days_left]
 
         for book in books:
             self.found_books.add(book)
 
         self.libraries.append(SolLib(lib.id, books))
+
+    def score_gained(self, lib, books=None):
+        if books == None:
+            books = self.get_best_books(lib, self.days_left-lib.num_days)
+        books = [book for book in books if book not in self.found_books][:self.days_left*lib.flow]
+        return sum([self.problem.weights[book] for book in books])
 
     def print(self, file=None):
         if file:
