@@ -1,5 +1,5 @@
 import click
-
+from hashcode.david.script import solve
 
 @click.group()
 def cli():
@@ -20,11 +20,12 @@ def wout(file, out):
     from hashcode.api.models import Solution
     problem = Problem(file)
     print("Parse succes")
-    solution = Solution()
+    solution = Solution(problem)
     solution.add_lib(1, [1, 2, 3])
     solution.print()
-    solution.print(file="sol.out")
 
+    solve(problem)
+    solution.print(file="sol.out")
 
 @cli.command()
 @click.option('--file', help='Input file')
