@@ -17,7 +17,7 @@ class Solution():
 
     def get_best_books(self, lib, time_left, books_to_libraries=None):
         bbw = [(self.problem.weights[book], book)
-                for book in lib.books if book not in self.found_books]
+               for book in lib.books if book not in self.found_books]
         if len(bbw) == 0:
             return []
         if books_to_libraries is None:
@@ -45,8 +45,8 @@ class Solution():
 
     def score_gained(self, lib, books=None):
         if books == None:
-            books = self.get_best_books(lib, self.days_left-lib.num_days)
-        books = [book for book in books if book not in self.found_books][:self.days_left*lib.flow]
+            books = self.get_best_books(lib, self.days_left - lib.num_days)
+        books = [book for book in books if book not in self.found_books][:self.days_left * lib.flow]
         return sum([self.problem.weights[book] for book in books])
 
     def print(self, file=None):

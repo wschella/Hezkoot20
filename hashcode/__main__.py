@@ -18,12 +18,13 @@ def main():
 @click.option('--file', help='Input file')
 @click.option('--out', help='Output file', required=False)
 def wout(file, out):
+    from hashcode.wout.script import solve
+    out = out if out else "sol.out"
+    print("Saving to {}".format(out))
     problem = Problem(file)
-    print("Parse succes")
-    solution = Solution(problem)
-    solution.add_lib(problem.libraries[0])
+    solution = solve(problem)
     solution.print()
-    solution.print(file="sol.out")
+    solution.print(file=out)
     print(solution.score())
 
 
