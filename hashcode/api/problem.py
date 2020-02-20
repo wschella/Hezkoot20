@@ -27,7 +27,7 @@ class Problem:
                 assert len(books) == N
 
                 library = Library(N, T, M, books)
-                self.libraries.append(Library)
+                self.libraries.append(library)
 
     def score(self, a, b):
         pass
