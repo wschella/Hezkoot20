@@ -12,8 +12,8 @@ class Solution():
     def __init__(self):
         self.libraries = []
 
-    def add_lib(self, lib):
-        self.libraries.append(lib)
+    def add_lib(self, id_, books):
+        self.libraries.append(SolLib(id_, books))
 
     def print(self):
         num_of_libraries = 0
