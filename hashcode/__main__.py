@@ -16,7 +16,9 @@ def main():
 @click.option('--file', help='Input file')
 @click.option('--out', help='Output file', required=False)
 def wout(file, out):
-    pass
+    from hashcode.api.problem import Problem
+    problem = Problem(file)
+    print("Parse succes")
 
 @cli.command()
 @click.option('--file', help='Input file')
