@@ -15,12 +15,15 @@ class Solution():
         self.found_books = set()
         self.days_left = problem.num_days
 
-    def get_best_books(self, lib, time_left):
+    def get_best_books(self, lib, time_left, books_to_libraries=None):
         bbw = [(self.problem.weights[book], book)
                 for book in lib.books if book not in self.found_books]
         if len(bbw) == 0:
             return []
-        bbw.sort()
+        if books_to_libraries is None:
+            bbw.sort()
+        else:
+            bbw.sort(key=lambda x: x[0] - .5 * len(books_to_libraries[x[1]]))
         bbw.reverse()
         return list(zip(*bbw))[1][:lib.flow * time_left]
 

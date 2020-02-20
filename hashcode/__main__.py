@@ -46,7 +46,8 @@ def david(file, out):
     problem = Problem(file)
     print("Parse succes")
     solution = solve(problem)
-    solution.print()
+    print("score")
+    print(solution.score())
 
     solution.print(file="sol.out")
 
