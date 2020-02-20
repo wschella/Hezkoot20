@@ -32,7 +32,7 @@ class Problem:
 
     def books_to_libs(self):
         books_to_libraries = [[] for _i in range(self.numb_books)]
-        for library in problem.libraries:
+        for library in self.libraries:
             for book in library.books:
                 books_to_libraries[book].append(library)
         return books_to_libraries
