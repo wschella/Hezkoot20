@@ -20,8 +20,7 @@ class Solution():
         print(num_of_libraries)
 
         for lib in self.libraries:
-            print(lib.id)
-            print(len(lib.books))
+            print("{} {}".format(lib.id, len(lib.books)))
             print(" ".join(lib.books))
 
 
