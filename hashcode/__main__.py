@@ -20,17 +20,20 @@ def wout(file, out):
     problem = Problem(file)
     print("Parse succes")
 
+
 @cli.command()
 @click.option('--file', help='Input file')
 @click.option('--out', help='Output file', required=False)
 def toon(file, out):
     pass
 
+
 @cli.command()
 @click.option('--file', help='Input file')
 @click.option('--out', help='Output file', required=False)
 def david(file, out):
     pass
+
 
 @cli.command()
 @click.option('--file', help='Input file')

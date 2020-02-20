@@ -27,7 +27,7 @@ class Problem:
                 books = [int(x) for x in next(file).split()]
                 assert len(books) == lib_num_books
 
-                library = Library(lib_num_books, lib_days, lib_book_ships, books)
+                library = Library(i, lib_num_books, lib_days, lib_book_ships, books)
                 self.libraries.append(library)
 
     def score(self, a, b):
