@@ -17,6 +17,9 @@ class Solution():
 
     def add_lib(self, lib, books=None):
         self.days_left -= lib.num_days
+        if self.days_left <= 0:
+            self.days = 0
+            return
         if books == None:
             bbw = [(self.problem.weights[book], book)
                    for book in lib.books if book not in self.found_books]
