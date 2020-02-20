@@ -20,6 +20,7 @@ class Problem:
 
             S = [x for x in next(file).split()]
             assert len(S) == B
+            self.S = S
 
             for i in range(0, L):
                 N, T, M = [int(x) for x in next(file).split()]
@@ -28,6 +29,8 @@ class Problem:
 
                 library = Library(N, T, M, books)
                 self.libraries.append(library)
+
+    def
 
     def score(self, a, b):
         pass
