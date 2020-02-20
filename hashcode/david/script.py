@@ -1,14 +1,38 @@
-from hashcode.api.models import Library
+from hashcode.api.models import Library, Solution
 from hashcode.api.problem import Problem
 import numpy as np
 import sys
 
 
 def solve(problem):
-    pass
+    solution = Solution(problem)
+
+    used_libs = set()
+    days_left = problem.num_days
 
 
-def solveD(problem):
+    while days_left > 0:
+        print(days_left, file=sys.stderr)
+        library = max(problem.libraries, key=lambda lib: score_library(lib, solution, problem, days_left, used_libs))
+        used_libs.add(library)
+        days_left -= library.num_days
+
+        solution.add_lib(library)
+
+    return solution
+
+
+def score_library(library, solution, problem, days_left, used_libs):
+    if library in used_libs:
+        return 0
+
+    if library.num_days >= days_left:
+        return 0
+
+    return solution.lib_score_add(library) / library.num_days
+
+
+def solve_d(problem):
     books_to_libraries = [[] for _i in range(problem.numb_books)]
     for library in problem.libraries:
         for book in library.books:

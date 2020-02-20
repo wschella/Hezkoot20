@@ -1,5 +1,7 @@
 import click
-from hashcode.david.script import solve
+from hashcode.api.problem import Problem
+from hashcode.api.models import Solution
+
 
 
 @click.group()
@@ -17,8 +19,6 @@ def main():
 @click.option('--file', help='Input file')
 @click.option('--out', help='Output file', required=False)
 def wout(file, out):
-    from hashcode.api.problem import Problem
-    from hashcode.api.models import Solution
     problem = Problem(file)
     print("Parse succes")
     solution = Solution(problem)
@@ -42,7 +42,13 @@ def toon(file, out):
 @click.option('--file', help='Input file')
 @click.option('--out', help='Output file', required=False)
 def david(file, out):
-    pass
+    from hashcode.david.script import solve
+    problem = Problem(file)
+    print("Parse succes")
+    solution = solve(problem)
+    solution.print()
+
+    solution.print(file="sol.out")
 
 
 @cli.command()

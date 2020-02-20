@@ -15,6 +15,17 @@ class Solution():
         self.found_books = set()
         self.days_left = problem.num_days
 
+    def lib_score_add(self, lib):
+        days_left = self.days_left - lib.num_days
+
+        bbw = [(self.problem.weights[book], book)
+               for book in lib.books if book not in self.found_books]
+        bbw.sort()
+        bbw.reverse()
+        books = list(zip(*bbw))[1][:lib.flow * days_left]
+        book_scores = [self.problem.weights[book] for book in books]
+        return sum(book_scores)
+
     def add_lib(self, lib, books=None):
         self.days_left -= lib.num_days
         if books == None:
