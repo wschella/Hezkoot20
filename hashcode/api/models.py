@@ -19,6 +19,9 @@ class Solution():
         self.days_left -= lib.num_days
         if books == None:
             bbw = [(self.problem.weights[book], book) for book in lib.books if book not in self.found_books]
+            if len(bbw) == 0:
+                self.days_left += lib.num_days
+                return
             bbw.sort()
             bbw.reverse()
             books = list(zip(*bbw))[1][:lib.flow*self.days_left]
