@@ -10,10 +10,10 @@ def solve(problem):
     used_libs = set()
     days_left = problem.num_days
 
-
     while days_left > 0:
         print(days_left, file=sys.stderr)
-        library = max(problem.libraries, key=lambda lib: score_library(lib, solution, problem, days_left, used_libs))
+        library = max(problem.libraries, key=lambda lib: score_library(
+            lib, solution, problem, days_left, used_libs))
         used_libs.add(library)
         days_left -= library.num_days
 
@@ -29,7 +29,7 @@ def score_library(library, solution, problem, days_left, used_libs):
     if library.num_days >= days_left:
         return 0
 
-    return solution.score_gained(library) / library.num_days
+    return solution.score_gained(library) / library.num_days ** 1.3
 
 
 def solve_d(problem):

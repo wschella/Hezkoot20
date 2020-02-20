@@ -45,6 +45,7 @@ def david(file, out):
     solution.print()
 
     solution.print(file="sol.out")
+    print(solution.score())
 
 
 @cli.command()
