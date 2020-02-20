@@ -15,13 +15,15 @@ class Solution():
     def add_lib(self, id_, books):
         self.libraries.append(SolLib(id_, books))
 
-    def print(self):
-        num_of_libraries = 0
-        print(num_of_libraries)
+    def print(self, file=None):
+        if file:
+            file = open(file, 'w')
+
+        print(len(self.libraries), file=file)
 
         for lib in self.libraries:
-            print("{} {}".format(lib.id, len(lib.books)))
-            print(" ".join(lib.books))
+            print("{} {}".format(lib.id, len(lib.books)), file=file)
+            print(" ".join([str(b) for b in lib.books]), file=file)
 
 
 class SolLib():

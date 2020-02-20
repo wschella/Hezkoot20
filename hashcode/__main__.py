@@ -17,8 +17,13 @@ def main():
 @click.option('--out', help='Output file', required=False)
 def wout(file, out):
     from hashcode.api.problem import Problem
+    from hashcode.api.models import Solution
     problem = Problem(file)
     print("Parse succes")
+    solution = Solution()
+    solution.add_lib(1, [1, 2, 3])
+    solution.print()
+    solution.print(file="sol.out")
 
 
 @cli.command()
