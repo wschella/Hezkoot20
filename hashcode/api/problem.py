@@ -19,13 +19,13 @@ class Problem:
             self.num_days = num_days
 
             weights = [x for x in next(file).split()]
-            assert len(weights) == B
+            assert len(weights) == num_books
             self.weights = weights
 
             for i in range(0, num_libs):
                 lib_num_books, lib_days, lib_book_ships = [int(x) for x in next(file).split()]
                 books = [int(x) for x in next(file).split()]
-                assert len(books) == N
+                assert len(books) == lib_num_books
 
                 library = Library(lib_num_books, lib_days, lib_book_ships, books)
                 self.libraries.append(library)
