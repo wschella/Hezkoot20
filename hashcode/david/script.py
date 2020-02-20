@@ -29,7 +29,7 @@ def score_library(library, solution, problem, days_left, used_libs):
     if library.num_days >= days_left:
         return 0
 
-    return solution.lib_score_add(library) / library.num_days
+    return solution.score_gained(library) / library.num_days
 
 
 def solve_d(problem):
