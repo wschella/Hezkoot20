@@ -12,25 +12,23 @@ class Problem:
         self.libraries = []
 
         with open('{}'.format(problem)) as file:
-            B, L, D = [int(x) for x in next(file).split()]
+            num_books, num_libs, num_days = [int(x) for x in next(file).split()]
 
-            self.B = B
-            self.L = L
-            self.D = D
+            self.numb_books = num_books
+            self.num_libs = num_libs
+            self.num_days = num_days
 
-            S = [x for x in next(file).split()]
-            assert len(S) == B
-            self.S = S
+            weights = [x for x in next(file).split()]
+            assert len(weights) == B
+            self.weights = weights
 
-            for i in range(0, L):
-                N, T, M = [int(x) for x in next(file).split()]
+            for i in range(0, num_libs):
+                lib_num_books, lib_days, lib_book_ships = [int(x) for x in next(file).split()]
                 books = [int(x) for x in next(file).split()]
                 assert len(books) == N
 
-                library = Library(N, T, M, books)
+                library = Library(lib_num_books, lib_days, lib_book_ships, books)
                 self.libraries.append(library)
-
-    def
 
     def score(self, a, b):
         pass
