@@ -39,6 +39,7 @@ class Solution():
         if file:
             file = open(file, 'w')
 
+        self.libraries = [lib for lib in self.libraries if len(lib.books) > 0]
         print(len(self.libraries), file=file)
 
         for lib in self.libraries:
