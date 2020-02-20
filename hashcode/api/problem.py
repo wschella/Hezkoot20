@@ -29,9 +29,3 @@ class Problem:
 
                 library = Library(i, lib_num_books, lib_days, lib_book_ships, books)
                 self.libraries.append(library)
-
-    def score(self, a, b):
-        pass
-
-    def total_score(self, photos):
-        pass

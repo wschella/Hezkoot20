@@ -3,8 +3,10 @@ from hashcode.api.problem import Problem
 import numpy as np
 import sys
 
+
 def solve(problem):
-    
+    pass
+
 
 def solveD(problem):
     books_to_libraries = [[] for _i in range(problem.numb_books)]

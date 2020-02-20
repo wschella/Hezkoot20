@@ -1,6 +1,7 @@
 import click
 from hashcode.david.script import solve
 
+
 @click.group()
 def cli():
     pass
@@ -21,11 +22,14 @@ def wout(file, out):
     problem = Problem(file)
     print("Parse succes")
     solution = Solution(problem)
-    solution.add_lib(1, [1, 2, 3])
+    solution.add_lib(problem.libraries[0])
     solution.print()
+    solution.print(file="sol.out")
+    print(solution.score())
 
     solve(problem)
     solution.print(file="sol.out")
+
 
 @cli.command()
 @click.option('--file', help='Input file')

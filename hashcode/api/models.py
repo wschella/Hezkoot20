@@ -18,16 +18,18 @@ class Solution():
     def add_lib(self, lib, books=None):
         self.days_left -= lib.num_days
         if books == None:
-            bbw = [(self.problem.weights[book], book) for book in lib.books if book not in self.found_books]
+            bbw = [(self.problem.weights[book], book)
+                   for book in lib.books if book not in self.found_books]
             if len(bbw) == 0:
                 self.days_left += lib.num_days
                 return
             bbw.sort()
             bbw.reverse()
-            books = list(zip(*bbw))[1][:lib.flow*self.days_left]
+            books = list(zip(*bbw))[1][:lib.flow * self.days_left]
 
         for book in books:
             self.found_books.add(book)
+
         self.libraries.append(SolLib(lib.id, books))
 
     def print(self, file=None):
@@ -39,6 +41,9 @@ class Solution():
         for lib in self.libraries:
             print("{} {}".format(lib.id, len(lib.books)), file=file)
             print(" ".join([str(b) for b in lib.books]), file=file)
+
+    def score(self):
+        return sum([self.problem.weights[book] for book in self.found_books])
 
 
 class SolLib():
