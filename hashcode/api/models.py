@@ -4,7 +4,7 @@ class Library():
         self.num_books = num_books
         self.num_days = num_days
         self.flow = flow
-        self.books = books
+        self.books = set(books)
 
 
 class Solution():

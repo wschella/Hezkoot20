@@ -18,7 +18,7 @@ class Problem:
             self.num_libs = num_libs
             self.num_days = num_days
 
-            weights = [x for x in next(file).split()]
+            weights = [int(x) for x in next(file).split()]
             assert len(weights) == num_books
             self.weights = weights
 
