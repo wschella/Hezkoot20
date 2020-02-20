@@ -1,6 +1,7 @@
 # Ignore code submission
 *.zip
 *.out
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

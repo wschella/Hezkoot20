@@ -3,7 +3,6 @@ from hashcode.api.problem import Problem
 from hashcode.api.models import Solution
 
 
-
 @click.group()
 def cli():
     pass
@@ -27,9 +26,6 @@ def wout(file, out):
     solution.print(file="sol.out")
     print(solution.score())
 
-    solve(problem)
-    solution.print(file="sol.out")
-
 
 @cli.command()
 @click.option('--file', help='Input file')
@@ -50,6 +46,7 @@ def david(file, out):
     print(solution.score())
 
     solution.print(file="sol.out")
+    print(solution.score())
 
 
 @cli.command()

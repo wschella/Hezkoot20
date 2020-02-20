@@ -14,7 +14,6 @@ def solve(problem):
     used_libs = set()
     days_left = problem.num_days
 
-
     while days_left > 0:
         print(days_left, file=sys.stderr)
         library = max(problem.libraries, key=lambda lib: score_library(lib, solution, problem, days_left, used_libs, books_to_libraries))
