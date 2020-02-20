@@ -7,9 +7,7 @@ name = "pypi"
 numpy = "*"
 click = "*"
 tqdm = "*"
-mypy = "*"
 ortools = "*"
-# deap = "*"
 
 
 [dev-packages]
